@@ -2,7 +2,7 @@ const fs = require('fs')
 const filename = '../../files/productos.json';
 const path = require('path');
     
-// save(Object): Number - Recibe un objeto, lo guarda en el file, devuelve el id asignado.
+
 const save = async (objProduct)  =>{
     let productos = [];
     const data = await fs.promises.readFile(path.resolve(__dirname, `${filename}`),"utf-8")
@@ -26,7 +26,6 @@ const save = async (objProduct)  =>{
         }      
 }
 
-// Metodo getById(Number)
 const getById = async (id) => {
     if (fs.existsSync(path.resolve(__dirname, `${filename}`))){
         const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), 'utf-8');
@@ -41,7 +40,6 @@ const getById = async (id) => {
     return {"mensaje": "Producto no encontrado"};
 }
 
-// Metodo getAll()
 const getAll = async () =>{
     if (fs.existsSync(path.resolve(__dirname, `${filename}`))){
         const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), 'utf-8');
@@ -55,7 +53,6 @@ const getAll = async () =>{
     return  {"mensaje": "Archivo no encontrado"};
 }
 
-// Metodo deleteById(Number)
 const deleteById = async (id) => {
     if (fs.existsSync(path.resolve(__dirname, `${filename}`))){
         const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), "utf-8");
@@ -67,7 +64,6 @@ const deleteById = async (id) => {
     }
 }
 
-// Metodo updateById(id, prodcut)
 const updateById = async (id, productNew)=> {
     if (fs.existsSync(path.resolve(__dirname, `${filename}`))){
         const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), 'utf-8');

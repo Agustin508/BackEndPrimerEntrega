@@ -2,7 +2,6 @@ const fs = require('fs')
 const filename = '../../files/carritos.json';
 const path = require('path');
     
-// save(Object): Number - Recibe un objeto, lo guarda en el file, devuelve el id asignado.
 
 const save = async (newItem)  =>{
     let carrito = [];
@@ -26,10 +25,6 @@ const save = async (newItem)  =>{
 }
 
 
-
-
-
-// Metodo getById(Number)
 const getById = async (id) => {
     if (fs.existsSync(path.resolve(__dirname, `${filename}`))){
         const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), 'utf-8');
@@ -44,7 +39,6 @@ const getById = async (id) => {
     return {};
 }
 
-// Metodo getAll()
 const getAll = async () =>{
     if (fs.existsSync(__dirname, `${filename}`)){
         const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), 'utf-8');
@@ -58,7 +52,6 @@ const getAll = async () =>{
     return 'Archivo de Carritos no encontrado'; 
 }
 
-// Metodo deleteById(Number)
 const deleteById = async (id) => {
     const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), "utf-8");
     const dataParseada = JSON.parse(data);
@@ -68,7 +61,6 @@ const deleteById = async (id) => {
     return dataFiltrada;
 }
 
-// Metodo deleteProductoById(Number)
 const deleteProductoById = async (id, usuario, idproducto) => {
     const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), "utf-8");
     const dataParseada = JSON.parse(data);
@@ -78,7 +70,6 @@ const deleteProductoById = async (id, usuario, idproducto) => {
     return dataFiltrada;
 }
 
-// Metodo updateById
 const updateById = async (id, productNew)=> {
     if (fs.existsSync(path.resolve(__dirname, `${filename}`))){
         const data = fs.readFileSync(path.resolve(__dirname, `${filename}`), 'utf-8');
